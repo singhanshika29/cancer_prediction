@@ -11,8 +11,11 @@ from sklearn.metrics import accuracy_score
 
 import mlflow
 import mlflow.sklearn
-
 import dagshub
+
+# -----------------------
+# MLflow + DagsHub Setup
+# -----------------------
 mlflow.set_tracking_uri("https://dagshub.com/singhanshika29/cancer_prediction.mlflow")
 
 dagshub.init(
@@ -20,6 +23,9 @@ dagshub.init(
     repo_name="cancer_prediction",
     mlflow=True
 )
+
+mlflow.set_experiment("cancer_prediction")
+
 # -----------------------
 # Load Data
 # -----------------------
@@ -49,10 +55,8 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
 # -----------------------
-# MLflow Setup
+# Start MLflow Run
 # -----------------------
-mlflow.set_experiment("cancer_prediction")
-
 with mlflow.start_run():
 
     # Model
@@ -66,19 +70,22 @@ with mlflow.start_run():
     print("Accuracy:", acc)
 
     # -----------------------
-    # MLflow Logging
+    # Save Model FIRST ✅
+    # -----------------------
+    os.makedirs("models", exist_ok=True)
+    joblib.dump(model, "models/model.pkl")
+    joblib.dump(scaler, "models/scaler.pkl")
+
+    # -----------------------
+    # MLflow Logging ✅
     # -----------------------
     mlflow.log_param("model", "LogisticRegression")
     mlflow.log_param("max_iter", 1000)
     mlflow.log_metric("accuracy", acc)
+
+    # 🔥 Correct artifact logging
     mlflow.log_artifact("models/model.pkl")
+    mlflow.log_artifact("models/scaler.pkl")
 
-    # -----------------------
-# Save Model
-os.makedirs("models", exist_ok=True)
-
-joblib.dump(model, "models/model.pkl")
-joblib.dump(scaler, "models/scaler.pkl")
-
-# Log model to MLflow
-mlflow.sklearn.log_model(model, "model")
+    # 🔥 BEST WAY (recommended)
+    mlflow.sklearn.log_model(model, "model")
