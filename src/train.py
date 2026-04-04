@@ -71,8 +71,7 @@ with mlflow.start_run():
     mlflow.log_param("model", "LogisticRegression")
     mlflow.log_param("max_iter", 1000)
     mlflow.log_metric("accuracy", acc)
-    mlflow.log_artifact("model.pkl")
-    mlflow.log_artifact("scaler.pkl")
+    mlflow.log_artifact("models/model.pkl")
 
     # -----------------------
 # Save Model
