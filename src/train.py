@@ -12,6 +12,13 @@ from sklearn.metrics import accuracy_score
 import mlflow
 import mlflow.sklearn
 
+import dagshub
+
+dagshub.init(
+    repo_owner="singhanshika29",
+    repo_name="cancer_prediction",
+    mlflow=True
+)
 # -----------------------
 # Load Data
 # -----------------------
