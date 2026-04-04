@@ -13,6 +13,7 @@ import mlflow
 import mlflow.sklearn
 
 import dagshub
+mlflow.set_tracking_uri("https://dagshub.com/singhanshika29/cancer_prediction.mlflow")
 
 dagshub.init(
     repo_owner="singhanshika29",
