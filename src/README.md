@@ -25,8 +25,6 @@ An end-to-end Machine Learning + MLOps project that predicts whether a tumor is 
 - NumPy, Pandas  
 
 ---
-
-## 📁 Project Structure
 ## 🔗 DagsHub
 
 This project uses DagsHub for experiment tracking with MLflow.
