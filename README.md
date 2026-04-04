@@ -1,21 +1,21 @@
-# 🧬 Cancer Prediction App (MLOps Project)
+#  Cancer Prediction App (MLOps Project)
 
 An end-to-end Machine Learning + MLOps project that predicts whether a tumor is **Malignant (Cancer)** or **Benign (No Cancer)** using a trained ML model and deployed via Streamlit.
 
 ---
 
-## 🚀 Features
+## Features
 
-- ✅ Data preprocessing & feature scaling  
-- ✅ Model training using Logistic Regression  
-- ✅ Experiment tracking with MLflow  
-- ✅ Data versioning with DVC  
-- ✅ Model saving using joblib  
-- ✅ Real-time prediction using Streamlit UI  
+- Data preprocessing & feature scaling  
+-  Model training using Logistic Regression  
+-  Experiment tracking with MLflow  
+-  Data versioning with DVC  
+-  Model saving using joblib  
+-  Real-time prediction using Streamlit UI  
 
 ---
 
-## 🧠 Tech Stack
+## Tech Stack
 
 - Python  
 - Scikit-learn  
@@ -24,7 +24,7 @@ An end-to-end Machine Learning + MLOps project that predicts whether a tumor is 
 - Streamlit  
 - NumPy, Pandas
 - 
-## 🔗 DagsHub 
+##  DagsHub 
 
 This project uses DagsHub for experiment tracking with MLflow.
 
@@ -36,4 +36,3 @@ https://dagshub.com/singhanshika29/cancer_prediction
 - Metrics logging (accuracy)
 ---
 
-## 📁 Project Structure
