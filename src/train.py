@@ -12,6 +12,10 @@ from sklearn.metrics import accuracy_score
 import mlflow
 import mlflow.sklearn
 import dagshub
+import os
+os.environ["TMPDIR"] = "C:/temp"
+os.environ["TEMP"] = "C:/temp"
+os.environ["TMP"] = "C:/temp"
 
 # -----------------------
 # MLflow + DagsHub Setup
@@ -30,6 +34,7 @@ mlflow.set_experiment("cancer_prediction")
 # Load Data
 # -----------------------
 df = pd.read_csv("data/Cancer_Data.csv")
+df.head()
 
 # -----------------------
 # Preprocessing
